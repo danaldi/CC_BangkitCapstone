@@ -2,12 +2,21 @@
 Capstone bangkit
 
 # How to Run
-Start:
+Install (use Node.js version 18.18.2 if there are any problems with other versions)
+```bash
+npm install
 ```
+Copy .env.template and rename to .env and fill .env variables
+```
+cp .env.template .env
+```
+
+Start:
+```bash
 npm start
 ```
 
 Start development (with nodemon):
-```
-npm run start-dev
+```bash
+npm run dev
 ```
