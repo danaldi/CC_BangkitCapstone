@@ -40,7 +40,7 @@ passport.use(
     (accessToken, refreshToken, profile, done) => {
       // Use profile information to create or update user in your database
       // For simplicity, let's assume you have a function `findOrCreateUser` in your controller
-      usersController.findOrCreateUser(profile, done);
+      usersController.findOrCreateUser(profile, accessToken, done);
     }
   )
 );
@@ -77,7 +77,7 @@ app.post(
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
     if (req.isAuthenticated()) {
-      res.status(200).json({ success: true, data: req.user});
+      res.status(200).json({ success: true, data: req.user, access_token: req.user.access_token});
     } else {
       res.status(401).send({ success: false, message: "Unauthorized" });
     }

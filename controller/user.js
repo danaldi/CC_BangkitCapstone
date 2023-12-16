@@ -100,13 +100,14 @@ const deleteUserById = (req, res) => {
   }
 };
 
-const findOrCreateUser = async (profile, done) => {
+const findOrCreateUser = async (profile, accessToken, done) => {
   try {
     // Use the profile information to create or find the user in your database
     const user = {
       uid: profile.id,
       name: profile.displayName,
       email: profile.emails[0].value,
+      access_token: accessToken
       // Add more user properties as needed
     };
 
