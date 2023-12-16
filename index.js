@@ -34,8 +34,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:5000/auth/google/callback", //-> local
-      // callbackURL: "http://auth.saddan.my.id:5000/auth/google/callback", // -> production
+      // callbackURL: "http://localhost:5000/auth/google/callback", //-> local
+      callbackURL: "http://auth.saddan.my.id/auth/google/callback", // -> production
     },
     (accessToken, refreshToken, profile, done) => {
       // Use profile information to create or update user in your database
