@@ -5,8 +5,8 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const bodyParser = require("body-parser");
 const axios = require("axios");
 const dotenv = require("dotenv");
-const ML_API_URL = process.env.ML_API_URL || "http://localhost:8080";
 dotenv.config();
+const ML_API_URL = process.env.ML_API_URL || "http://localhost:8080";
 
 const userRoutes = require("./routes/user.js");
 const middlewareLogRequest = require("./middleware/log.js");
