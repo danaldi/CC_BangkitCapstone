@@ -120,4 +120,24 @@ app.post("/api/predict", (req, res) => {
   }
 });
 
+app.post("/api/open/predict", (req, res) => {
+  const { data } = req.body;
+  filename = data.filename;
+  b64_img_data = data.b64_img_data;
+
+  axios
+    .post(`${ML_API_URL}/predict`, {
+      data: {
+        filename: filename,
+        b64_img_data: b64_img_data,
+      },
+    })
+    .then(function (response) {
+      res.status(200).json({ success: true, data: response.data });
+    })
+    .catch(function (error) {
+      res.status(500).json({ success: false, data: error });
+    });
+});
+
 app.listen(PORT, () => console.log(`Server running at port: ${PORT}`));
